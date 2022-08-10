@@ -1,0 +1,20 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <form action="/final_prediction_cnn" method="POST">
+                    <div class="form-group">
+                        <label for="txt_msg">Input Mail Message Here</label>
+                        <textarea name="txt_msg" id="" cols="5" rows="5" style="resize: none;" class="form-control" required></textarea>
+                        <p class="mt-5"><input type="submit" value="Predict" name="predict" class="btn btn-info"></p>
+
+                        <h4 class="mt-5">Prediction result using CNN is : {% if data=='spam' %}<span class="text-uppercase text-danger font-weight-bold">{{ data }} {% endif %}</span>
+                            {% if data=='ham' %}<span class="text-uppercase text-success font-weight-bold">{{ data }} {% endif %}</span>
+                        </h4>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

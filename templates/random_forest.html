@@ -1,0 +1,71 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+  <div class="container my-3">
+      <div class="row">
+          <div class="col-lg-12">
+            <h4 class="my-4">Total Dataset Size is : <span class="text-info font-weight-bold">{{totalsize}}</span></h4>
+
+            <h4 class="my-4">Training Dataset Size is : <span class="text-info font-weight-bold">{{totaltrainsize}}</span></h4>
+
+            <h4 class="my-4">Testing Dataset Size is : <span class="text-info font-weight-bold">{{totaltestsize}}</span></h4>
+
+            <h4 class="my-4">Accuracy Score : <span class="text-info font-weight-bold">{{score}}</span></h4>
+
+            <h4 class="my-5">Training analysis using Random Forest Classifier</h4>
+
+              <table class="table table-bordered table-stripped table-hovered">
+                 <thead rowspan="2" class="thead-dark">
+                        <tr class="bg-dark text-white text-center">
+                            <th>SL No.</th>
+                            <th>Message</th>
+                            <th>Actual Result</th>
+                            <th>Predicted Result</th>
+                        </tr>
+                 </thead>
+
+                  <tbody>
+                  {% for i in range(totaltestsize) %}
+                    <tr class="text-center">
+                        <td>{{loop.index}}</td>
+                        <td>{{xtest[i]}}</td>
+                        {% if ytest[i]=='ham' %}
+                        <td class="text-info font-weight-bold">{{ytest[i]}}</td>
+                        {% endif %}
+                        {% if ytest[i]=='spam' %}
+                        <td class="text-danger font-weight-bold">{{ytest[i]}}</td>
+                        {% endif %}
+                        {% if predicted[i]=='ham' %}
+                        <td class="text-info font-weight-bold">{{predicted[i]}}</td>
+                        {% endif %}
+                        {% if predicted[i]=='spam' %}
+                        <td class="text-danger font-weight-bold">{{predicted[i]}}</td>
+                        {% endif %}
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+              </table>
+
+              <h3 class="mt-5 text-center">Confusion Matrix</h3>
+              <table class="table text-center">
+                  <tr>
+                      <td style="border-top: none;"></td>
+                      <td style="border-top: none;">SPAM</td>
+                      <td style="border-top: none;">HAM</td>
+                  </tr>
+                  <tr>
+                      <td style="border-top: none;">SPAM</td>
+                      <td style="border-left: 1px solid #dee2e6;">{{ c[0][0] }}</td>
+                      <td style="border-right: 1px solid #dee2e6;">{{ c[0][1] }}</td>
+                  </tr>
+                  <tr>
+                      <td style="border-top: none;">HAM</td>
+                      <td style="border-bottom: 1px solid #dee2e6;border-left: 1px solid #dee2e6;">{{ c[1][0] }}</td>
+                      <td style="border-bottom: 1px solid #dee2e6;border-right: 1px solid #dee2e6;">{{ c[1][1] }}</td>
+                  </tr>
+              </table>
+
+          </div>
+
+      </div>
+  </div>
+{% endblock %}

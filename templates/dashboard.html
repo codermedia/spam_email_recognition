@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="/static/bootstrap.min.css"/>
+
+    <style>
+        .btn:focus, .btn:active {
+          outline: none !important;
+          box-shadow: none !important;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <div class="col-lg-6 mx-auto my-5">
+        <table class="table table-bordered text-center">
+            <tr class="bg-dark text-white">
+                <td>DASHBOARD</td>
+            </tr>
+            <tr>
+                <td><a href="/view" class="btn">View Dataset</a></td>
+            </tr>
+            <tr>
+                <td><a href="/RF" class="btn">Train Dataset using Random Forest</a></td>
+            </tr>
+            <tr>
+                <td><a href="/NaiveBayes" class="btn">Train Dataset using Naive Bayes</a></td>
+            </tr>
+            <tr>
+                <td><a href="/LSTM" class="btn">Train Dataset using LSTM</a></td>
+            </tr>
+            <tr>
+                <td><a href="/CNN" class="btn">Train Dataset using CNN</a></td>
+            </tr>
+            <tr>
+                <td><a href="/prediction_RF" class="btn">Prediction using Random Forest</a></td>
+            </tr>
+            <tr>
+                <td><a href="/prediction_NB" class="btn">Prediction using Naive Bayes</a></td>
+            </tr>
+             <tr>
+                <td><a href="/prediction_LSTM" class="btn">Prediction using LSTM</a></td>
+            </tr>
+            <tr>
+                <td><a href="/prediction_CNN" class="btn">Prediction using CNN</a></td>
+            </tr>
+            <tr>
+                <td><a href="/bioinsp" class="btn">Prediction using Mealpy</a></td>
+            </tr>
+            <tr>
+                <td><a href="/results" class="btn">View Accurate Result</a></td>
+            </tr>
+
+        </table>
+    </div>
+
+</form>
+</body>
+</html>

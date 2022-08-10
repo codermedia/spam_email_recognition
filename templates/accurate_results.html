@@ -1,0 +1,38 @@
+{% extends 'adminindex.html' %}
+{% block body %}
+  <div class="container my-3">
+      <div class="row">
+          <div class="col-lg-12">
+            <h4 class="my-4">Best optimized algorithm is : <span class="text-info font-weight-bold">{{algorithm}}</span></h4>
+
+            <h4 class="my-5">Accurately Detected Results</h4>
+
+              <table class="table table-bordered table-stripped table-hovered">
+                 <thead rowspan="2" class="thead-dark">
+                        <tr class="bg-dark text-white text-center">
+                            <th>No.</th>
+                            <th>Message</th>
+                            <th>Category</th>
+                        </tr>
+                 </thead>
+
+                 <tbody>
+                  {% for i in range(totalSize) %}
+                    <tr class="text-center">
+                        <td>{{loop.index}}</td>
+                        <td>{{message[i]}}</td>
+                        {% if category[i]=='ham' %}
+                        <td class="text-info font-weight-bold">{{category[i]}}</td>
+                        {% endif %}
+                        {% if category[i]=='spam' %}
+                        <td class="text-danger font-weight-bold">{{category[i]}}</td>
+                        {% endif %}
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+              </table>
+          </div>
+
+      </div>
+  </div>
+{% endblock %}

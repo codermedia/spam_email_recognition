@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div class="container my-5">
+        <form action="/login" method="POST">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-lg-4">
+                    <label for="txt_username" class="d-block">Username</label>
+                    <input type="email" name="txt_username" class="d-block form-control" required>
+
+                    <p class="my-5"><label for="txt_password" class="d-block">Password</label>
+                    <input type="password" name="txt_password" class="d-block form-control" required></p>
+
+                    <p><input type="submit" value="LOGIN" name="Login" class="btn btn-primary btn-block">
+                    <a href="/register" class="btn btn-primary btn-block">SIGN UP</a></p>
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</body>
+</html>
